@@ -1,0 +1,33 @@
+.article-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.article-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.article-body {
+  font-size: 1rem;
+  color: #3d3c3c;
+}
+.article-categories {
+  font-size: 0.9rem;
+  color: #525151;
+}
+.article-tags {
+  font-size: 0.9rem;
+  color: #525151;
+}
+
+.article-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+

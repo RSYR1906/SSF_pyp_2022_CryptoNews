@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved News Articles</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-center mb-4">Saved News Articles</h1>
+        <!-- Button to redirect to Latest News -->
+        <form action="/" method="get">
+          <button type="submit" class="btn btn-outline-secondary">Back</button>
+        </form>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="article-box" th:each="article : ${savedArticles}">
+            <div class="row">
+              <div class="col-md-3">
+                <!-- Article Image -->
+                <img
+                  th:src="${article.imageUrl}"
+                  class="img-fluid rounded"
+                  alt="Article Image"
+                />
+              </div>
+              <div class="col-md-9">
+                <!-- Article ID -->
+                <div class="article-id">
+                  <strong>Article ID:</strong>
+                  <span th:text="${article.id}"></span>
+                </div>
+                <!-- Article Title -->
+                <div class="article-title">
+                  <h4 th:text="${article.title}"></h4>
+                </div>
+                <!-- Article Body -->
+                <div class="article-body mt-2" th:text="${article.body}"></div>
+                <!-- Article Tags -->
+                <div class="article-tags mt-2">
+                  <strong>Tags:</strong> <span th:text="${article.tags}"></span>
+                </div>
+                <!-- Article Published Date -->
+                <div class="mt-2">
+                  <strong>Published On:</strong>
+                  <span
+                    th:text="${#dates.format(new java.util.Date(article.publishedDate * 1000), 'yyyy-MM-dd HH:mm:ss')}"
+                  ></span>
+                </div>
+                <!-- Read More Link -->
+                <div class="mt-3">
+                  <a
+                    th:href="${article.url}"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
